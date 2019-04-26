@@ -4,6 +4,7 @@ import axios from 'axios';
 import Step1 from "./Step1"
 import Step2 from "./Step2"
 import Step3 from "./Step3"
+import store, {  RESET } from "../../store"
 
 export default class Wizard extends Component {
   constructor() {
@@ -13,13 +14,17 @@ export default class Wizard extends Component {
     }
   }
 
+  reset(){
+    store.dispatch({type:RESET})
+    
+  }
 
 
   render() {
     return (
       <div>
         Wizard
-        <Link to="/"><button>cancel</button></Link>
+        <Link to="/"><button onClick={this.reset}>cancel</button></Link>
         <Link to="/wizard/step1"><button>next</button></Link>
         <Switch>
           <Route component={Step1} exact path="/wizard/step1" />

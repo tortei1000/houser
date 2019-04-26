@@ -1,15 +1,25 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
+import store, { ADD_IMG } from "../../store"
 
 export default class Step2 extends Component {
   constructor(){
+    let reduxState = store.getState()
     super()
     this.state = {
-      img: ""
+      img: reduxState.img
     }
   }
   
+  componentDidMount(){
+    store.subscribe(()=>{
+      const reduxState = store.getState()
+      this.setState({
+        img: reduxState.img
+      })
+    })
+  }
   
   
   handleChange =(e)=>{
@@ -17,6 +27,10 @@ export default class Step2 extends Component {
     this.setState({
       [name]:value
     })
+  }
+
+  addImage = () => {
+    store.dispatch({type: ADD_IMG, payload:this.state.img})
   }
 
   render() {
@@ -30,7 +44,7 @@ export default class Step2 extends Component {
         </div>
         <div>
           
-        <Link to="/wizard/Step3"><button>next</button></Link>
+        <Link to="/wizard/Step3"><button onClick={this.addImage}>next</button></Link>
         </div>
       </div>
     )
