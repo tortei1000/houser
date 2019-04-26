@@ -6,7 +6,7 @@ module.exports = {
 
     db.get_all().then((house)=>{
       res.status(200).send(house)
-    })
+    }).catch(err => console.log("error", err))
   },
 
   createHouse : (req, res) => {
@@ -14,9 +14,10 @@ module.exports = {
     const { name, address, city, state, zip, img, mortage, rent} = req.body
     
 
-    db.create_house([name, address, city, state, zip, img, mortage, rent]).then(() => res.sendStatus(200))
+    db.create_house([name, address, city, state, zip, img, mortage, rent]).then(() => {
+    res.sendStatus(200)})
     console.log(`5- created a house on db`)
-      
+    
   },
 
   delete: (req, res) => {
