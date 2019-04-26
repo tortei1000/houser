@@ -11,10 +11,10 @@ module.exports = {
 
   createHouse : (req, res) => {
     const db = req.app.get('db')
-    const { name, address, city, state, zip} = req.body
+    const { name, address, city, state, zip, img, mortage, rent} = req.body
     
 
-    db.create_house([name, address, city, state, zip]).then(() => res.sendStatus(200))
+    db.create_house([name, address, city, state, zip, img, mortage, rent]).then(() => res.sendStatus(200))
     console.log(`5- created a house on db`)
       
   },

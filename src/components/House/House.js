@@ -13,6 +13,9 @@ export default class House extends Component {
           <li key={index} style={{ listStyle: 'none' }}>{item.city}</li>
           <li key={index} style={{ listStyle: 'none' }}>{item.state}</li>
           <li key={index} style={{ listStyle: 'none' }}>{item.zipcode}</li>
+          <img src={item.img}/>
+          <li key={index} style={{ listStyle: 'none' }}>{item.mortage}</li>
+          <li key={index} style={{ listStyle: 'none' }}>{item.rent}</li>
         </div>
         <div>
           <button onClick={()=>this.props.deleteHouse(item)}>delete</button>
