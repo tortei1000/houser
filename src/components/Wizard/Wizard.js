@@ -1,52 +1,31 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
 import axios from 'axios';
+import Step1 from "./Step1"
+import Step2 from "./Step2"
+import Step3 from "./Step3"
 
 export default class Wizard extends Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
-      name: "",
-      address: "",
-      city: "",
-      state:"",
-      zipcode: null
+
     }
   }
-  
-  createHouse = this.createHouse.bind(this)
-  
-  handleChange =(e)=>{
-    let {value, name} = e.target
-    this.setState({
-      [name]:value
-    })
-  }
 
-  createHouse  () {
-    axios.post('/api/houses', this.state).then(()=>{
-      this.props.history.push(`/`)
-    })
-  }
 
-  
 
   render() {
     return (
       <div>
         Wizard
         <Link to="/"><button>cancel</button></Link>
-        <div>
-          <input name="name" placeholder="name" onChange={this.handleChange}/>
-          <input name="address" placeholder="address" onChange={this.handleChange}/>
-          <input name="city" placeholder="city" onChange={this.handleChange}/>
-          <input name="state" placeholder="state" onChange={this.handleChange}/>
-          <input name="zipcode" placeholder="zipcode" onChange={this.handleChange}/>
-        </div>
-        <div>
-          <button onClick={this.createHouse}>complete</button>
-        <Link to="/"><button>next</button></Link>
-        </div>
+        <Link to="/wizard/step1"><button>next</button></Link>
+        <Switch>
+          <Route component={Step1} exact path="/wizard/step1" />
+          <Route component={Step2} exact path="/wizard/step2" />
+          <Route component={Step3} exact path="/wizard/step3" />
+        </Switch>
       </div>
     )
   }

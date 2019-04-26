@@ -15,9 +15,16 @@ module.exports = {
     
 
     db.create_house([name, address, city, state, zip]).then(() => res.sendStatus(200))
-      .catch(err => {
-        res.status(500).send({ errorMessage: `something went wrong in creation` })
-        console.log(err)
-      })
+    console.log(`5- created a house on db`)
+      
+  },
+
+  delete: (req, res) => {
+    const db = req.app.get('db')
+    const { id } = req.params
+
+    db.delete_house(id).then(() => res.sendStatus(200))
+    console.log(`6- deleted a house on db`)
+      
   },
 }

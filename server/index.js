@@ -23,5 +23,6 @@ app.use(express.json())
 
 app.get('/api/houses', controller.getAll)
 app.post('/api/houses', controller.createHouse)
+app.delete('/api/houses/:id', controller.delete)
 
 

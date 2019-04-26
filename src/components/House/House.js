@@ -15,7 +15,7 @@ export default class House extends Component {
           <li key={index} style={{ listStyle: 'none' }}>{item.zipcode}</li>
         </div>
         <div>
-          <button>delete</button>
+          <button onClick={()=>this.props.deleteHouse(item)}>delete</button>
         </div>
       </div>
     )
