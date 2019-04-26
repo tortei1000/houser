@@ -1,0 +1,11 @@
+.dash_button {
+  height: 50px;
+  width: 140px;
+  position: relative;
+  border: solid;
+  
+}
+
+.dash_main_div {
+  background: #afd4c0;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import axios from 'axios'
 import House from "../House/House"
+import "./dash.css"
 
 export default class Dashboard extends Component {
   constructor() {
@@ -38,10 +39,11 @@ export default class Dashboard extends Component {
     console.log(houses, "houses in the start of render")
 
     return (
-      <div>
+      <div className="dash_main_div">
+        <Link to="/wizard/step1"><button className="dash_button">Add new property</button></Link>
         {houses[0] ? houses.map((item, index) => {
           return (
-            <div>
+            <div >
               <House item={item} index={index} deleteHouse={this.deleteHouse} />
 
             </div>
@@ -49,7 +51,6 @@ export default class Dashboard extends Component {
         }) : null
         }
 
-        <Link to="/wizard/step1"><button>Add new property</button></Link>
 
       </div>
     )

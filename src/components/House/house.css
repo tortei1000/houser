@@ -1,0 +1,38 @@
+.house_parent_div{
+  background: #e5f4ec;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 300px;
+  margin-right: 300px;
+  font-size: 20px;
+  font-family: 'open sans';
+  text-align: left;
+
+}
+
+.house_li_parent{
+  background: #dedede;
+  display: flex;
+  flex-direction: column;
+}
+
+.house_image_parent{
+  padding-left: 30px;
+  padding-right: 30px;
+
+}
+.house_image {
+  width: 80%;
+  padding: 10%;
+  
+}
+
+.house_delete{
+  position: relative;
+  left: 95%;
+  
+  
+  width: 20px;
+  
+}
