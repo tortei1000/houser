@@ -22,5 +22,6 @@ massive(CONNECTION_STRING).then(db => {
 app.use(express.json())
 
 app.get('/api/houses', controller.getAll)
+app.post('/api/houses', controller.createHouse)
 
 

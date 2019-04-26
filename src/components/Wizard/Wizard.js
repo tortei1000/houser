@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import axios from 'axios';
 
 export default class Wizard extends Component {
   constructor(){
@@ -19,6 +20,10 @@ export default class Wizard extends Component {
     this.setState({
       [name]:value
     })
+  }
+
+  createHouse = () => {
+    axios.post('/api/houses')
   }
 
   render() {
