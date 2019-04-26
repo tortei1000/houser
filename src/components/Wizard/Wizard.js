@@ -14,6 +14,7 @@ export default class Wizard extends Component {
     }
   }
   
+  createHouse = this.createHouse.bind(this)
   
   handleChange =(e)=>{
     let {value, name} = e.target
@@ -22,9 +23,13 @@ export default class Wizard extends Component {
     })
   }
 
-  createHouse = () => {
-    axios.post('/api/houses')
+  createHouse  () {
+    axios.post('/api/houses', this.state).then(()=>{
+      this.props.history.push(`/`)
+    })
   }
+
+  
 
   render() {
     return (
@@ -39,6 +44,7 @@ export default class Wizard extends Component {
           <input name="zipcode" placeholder="zipcode" onChange={this.handleChange}/>
         </div>
         <div>
+          <button onClick={this.createHouse}>complete</button>
         <Link to="/"><button>next</button></Link>
         </div>
       </div>
